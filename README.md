@@ -1,14 +1,30 @@
-# Ezra - Booking Flow Test Automation
+# FunctionHealth - Ezra QA Automation Engineer Assessment
 
-This repository contains automated tests for Ezra's member booking flow, built with Playwright and TypeScript. The tests cover the critical revenue path from sign-up through payment confirmation.
+This repository contains my complete submission for the Ezra QA Automation Engineer assessment. It includes test case design, security analysis, and production-ready test automation.
 
-## What's Tested
+## Assessment Overview
 
-Three high-priority test cases that protect revenue and data quality:
+This submission covers all three questions from the assessment:
 
-1. **Happy Path** - Full end-to-end booking with payment and dashboard verification
-2. **Payment Declined** - Ensures failed payments don't create phantom appointments
-3. **Duplicate Email Prevention** - Blocks duplicate accounts and documents data quality gaps
+### Question 1: Booking Flow Test Cases
+- **15 prioritized test cases** for the booking flow (ranked most to least important)
+- **Deep rationale** for the top 3 test cases
+- **Location**: [`docs/question1/`](docs/question1/)
+
+### Question 2: Privacy & Security Testing
+- **Integration test case** preventing access to other members' medical data
+- **HTTP requests** implementing the test case (no Postman needed)
+- **Security strategy** for managing 100+ endpoints with sensitive data
+- **Location**: [`docs/question2/`](docs/question2/)
+
+### Automation: Top 3 Test Cases Automated
+Three high-priority test cases automated with Playwright + TypeScript:
+
+1. **TC-01: Happy Path** - Full end-to-end booking with payment and dashboard verification
+2. **TC-02: Payment Declined** - Ensures failed payments don't create phantom appointments
+3. **TC-03: Duplicate Email Prevention** - Blocks duplicate accounts and documents data quality gaps
+
+**Location**: [`automation/`](automation/)
 
 ## Quick Start
 
@@ -32,11 +48,15 @@ npx playwright test --headed
     └── question2/                  # Security test cases
 ```
 
-## Documentation
+## Complete Documentation
 
-- **[Automation Guide](automation/README.md)** - Complete setup, architecture, and test details
-- **[Test Cases](docs/question1/)** - Manual test case documentation
-- **[Security Testing](docs/question2/)** - Privacy and security test scenarios
+### Assessment Questions
+- **[Question 1: Test Case Design](docs/question1/)** - 15 prioritized booking flow test cases with detailed rationale
+- **[Question 2: Privacy & Security](docs/question2/)** - Integration test, HTTP requests, and security strategy
+
+### Automation
+- **[Automation Guide](automation/README.md)** - Complete setup, architecture, trade-offs, and future roadmap
+- Production-ready code with Page Object Model and helper utilities
 
 ## Tech Stack
 
@@ -98,7 +118,27 @@ Tests follow standard Playwright conventions. To add new tests:
 
 Tests run against staging: `https://myezra-staging.ezra.com`
 
-## Author
+## What's Included
 
-Built as part of the Ezra QA Automation Engineer assessment.
+✅ **Question 1 - Complete**
+- 15 test cases ranked by priority
+- Top 3 explained with real-world reasoning
+- Manual test documentation
+
+✅ **Question 2 - Complete**  
+- Privacy integration test case
+- HTTP request specifications
+- Security strategy with trade-offs
+
+✅ **Automation - Complete**
+- 3 automated tests (exceeds 2-3 requirement)
+- Page Object Model architecture
+- Trade-offs, assumptions, and scalability documented
+- Production-level code quality
+
+---
+
+**Submitted by**: Firat Meydan  
+**Assessment**: Ezra QA Automation Engineer  
+**Tech Stack**: Playwright, TypeScript, Page Object Model, Faker.js
 
