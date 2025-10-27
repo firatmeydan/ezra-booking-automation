@@ -48,16 +48,19 @@ npx playwright test --headed
 ## Running Tests
 
 ```bash
-# Run all tests
+# Run all tests (headless, parallel - recommended)
 npx playwright test
+
+# Run all tests in headed mode (see browser)
+npx playwright test --headed
 
 # Run specific test
 npx playwright test booking-happy-path
 
-# Run in headed mode (see the browser)
-npx playwright test --headed
+# Run with debug mode
+npx playwright test --debug
 
-# View test report
+# View HTML test report
 npx playwright show-report
 ```
 
@@ -72,11 +75,15 @@ npx playwright show-report
 
 ## Test Execution Times
 
-- **TC-01 Happy Path**: ~46 seconds
-- **TC-02 Payment Declined**: ~28 seconds
-- **TC-03 Duplicate Email**: ~21 seconds
+**Headless Mode (Default - Parallel Execution):**
+- Full suite: **~45 seconds** (all 3 tests run in parallel)
+- Uses 3 workers for maximum efficiency
 
-**Total runtime for full suite**: ~1.5 minutes
+**Headed Mode (Sequential):**
+- TC-01 Happy Path: ~46 seconds
+- TC-02 Payment Declined: ~28 seconds
+- TC-03 Duplicate Email: ~21 seconds
+- Total: ~1.5 minutes
 
 ## Contributing
 

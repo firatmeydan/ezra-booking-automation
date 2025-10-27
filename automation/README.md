@@ -117,26 +117,32 @@ This installs:
 ### Running Tests
 
 ```bash
-# Run all tests
+# Run all tests (headless, parallel - default)
 npx playwright test
+# Takes ~45 seconds (3 tests run in parallel with 3 workers)
+
+# Run all tests in headed mode (slower, sequential)
+npx playwright test --headed
 
 # Run specific test
 npx playwright test booking-happy-path.spec.ts
 
-# Run in headed mode (see browser)
-npx playwright test --headed
-
-# Run with debug mode
+# Run with debug mode (step through each action)
 npx playwright test --debug
 
-# Generate HTML report
+# View HTML report after test run
 npx playwright show-report
 ```
+
+**Performance:**
+- **Headless (default)**: ~45 seconds for full suite (parallel execution)
+- **Headed mode**: ~1.5 minutes for full suite (sequential execution)
+- Playwright automatically runs tests in parallel using multiple workers for speed
 
 ## Test Cases
 
 ### TC-01: Happy Path - End to End Booking
-**File**: `tests/booking-happy-path.spec.ts` | **Duration**: ~46 seconds
+**File**: `tests/booking-happy-path.spec.ts` | **Duration**: ~46 seconds (headed) | ~42 seconds (headless)
 
 This is the most important test because it covers the full revenue chain. If any part breaks, bookings stop and that's the business gone.
 
@@ -153,7 +159,7 @@ This is the most important test because it covers the full revenue chain. If any
 ---
 
 ### TC-02: Payment Declined Handling
-**File**: `tests/booking-payment-declined.spec.ts` | **Duration**: ~28 seconds
+**File**: `tests/booking-payment-declined.spec.ts` | **Duration**: ~28-29 seconds
 
 This test ensures declined payments stop everything cleanly without creating half-baked appointments.
 
@@ -169,7 +175,7 @@ This test ensures declined payments stop everything cleanly without creating hal
 ---
 
 ### TC-03: Duplicate Email Prevention
-**File**: `tests/booking-duplicate-email.spec.ts` | **Duration**: ~21 seconds
+**File**: `tests/booking-duplicate-email.spec.ts` | **Duration**: ~19-21 seconds
 
 This test verifies duplicate email blocking while documenting a gap with phone validation.
 
